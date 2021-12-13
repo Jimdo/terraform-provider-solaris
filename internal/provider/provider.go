@@ -5,6 +5,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/jimdo-fs/terraform-provider-solarisbank/internal/solaris"
 )
 
 func init() {
@@ -26,11 +27,25 @@ func init() {
 func New(version string) func() *schema.Provider {
 	return func() *schema.Provider {
 		p := &schema.Provider{
-			DataSourcesMap: map[string]*schema.Resource{
-				"scaffolding_data_source": dataSourceScaffolding(),
+			Schema: map[string]*schema.Schema{
+				"endpoint": {
+					Type:        schema.TypeString,
+					Required:    true,
+					DefaultFunc: schema.EnvDefaultFunc("SOLARISBANK_ENDPOINT", nil),
+				},
+				"client_id": {
+					Type:        schema.TypeString,
+					Required:    true,
+					DefaultFunc: schema.EnvDefaultFunc("SOLARISBANK_CLIENT_ID", nil),
+				},
+				"client_secret": {
+					Type:        schema.TypeString,
+					Required:    true,
+					DefaultFunc: schema.EnvDefaultFunc("SOLARISBANK_CLIENT_SECRET", nil),
+				},
 			},
 			ResourcesMap: map[string]*schema.Resource{
-				"scaffolding_resource": resourceScaffolding(),
+				"solarisbank_webhook": resourceWebhook(),
 			},
 		}
 
@@ -40,18 +55,23 @@ func New(version string) func() *schema.Provider {
 	}
 }
 
-type apiClient struct {
-	// Add whatever fields, client or connection info, etc. here
-	// you would need to setup to communicate with the upstream
-	// API.
-}
-
 func configure(version string, p *schema.Provider) func(context.Context, *schema.ResourceData) (interface{}, diag.Diagnostics) {
-	return func(context.Context, *schema.ResourceData) (interface{}, diag.Diagnostics) {
-		// Setup a User-Agent for your API client (replace the provider name for yours):
-		// userAgent := p.UserAgent("terraform-provider-scaffolding", version)
-		// TODO: myClient.UserAgent = userAgent
+	return func(ctx context.Context, data *schema.ResourceData) (interface{}, diag.Diagnostics) {
+		endpoint := data.Get("endpoint").(string)
+		clientID := data.Get("client_id").(string)
+		clientSecret := data.Get("client_secret").(string)
 
-		return &apiClient{}, nil
+		// we pass the background context here because the current
+		// context gets cancelled after the provider is configured.
+		// However the context that we pass here gets persistet into the
+		// solaris clients oauth token source, which needs to be alive
+		// (not cancelled) at resource creation time.
+		client := solaris.NewClient(context.Background(), solaris.Config{
+			Endpoint:     endpoint,
+			ClientID:     clientID,
+			ClientSecret: clientSecret,
+		})
+
+		return client, nil
 	}
 }

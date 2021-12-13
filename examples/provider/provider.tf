@@ -1,3 +1,3 @@
-provider "scaffolding" {
-  # example configuration here
+provider "solarisbank" {
+  endpoint = "api.solaris-sandbox.de"
 }
