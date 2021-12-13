@@ -50,3 +50,9 @@ In order to run the full suite of Acceptance tests, run `make testacc`.
 ```sh
 $ make testacc
 ```
+
+## Release a new version
+
+To release a new version, just create a Github Release with a tag following a `vX.X.X` format.
+
+This will trigger a Github Actions workflow that automatically builds a new release and attaches the artifact to the Github release.
