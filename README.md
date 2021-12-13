@@ -3,7 +3,7 @@
 Terraform provider to provision static resources using the Solarisbank API.
 
 Currently supported resources are:
-- Webhooks
+- [Webhooks](https://github.com/Jimdo-fs/terraform-provider-solarisbank/blob/main/docs/resources/webhook.md)
 
 ## Using the provider
 
