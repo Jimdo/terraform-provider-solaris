@@ -1,25 +1,36 @@
-# Terraform Provider Solarisbank
+# Solaris Terraform Provider
 
-Terraform provider to provision static resources using the Solarisbank API.
+[![CI]()
+[![Terraform Registry]()
 
-Currently supported resources are:
-- [Webhooks](https://github.com/Jimdo-fs/terraform-provider-solarisbank/blob/main/docs/resources/webhook.md)
+A Terraform provider, the tool for provisioning all your static resources using the Solaris API.
+
+📝 Read [the documentation]()
+
+👀 See [example/](examples/)
+
+## Supported Resources
+- [Webhooks](https://docs.solarisgroup.com/api-reference/onboarding/webhooks/)
 
 ## Using the provider
 
-First require the provider - TODO: find out how we do this, since the provider will be private.
+The provider can be installed directly from the Terraform Registry. To do this, include the following block in your Terraform configuration file. This will download the provider from the Terraform Registry.
 
-Now add a provider declaration and configure it:
-
-```terraform
+```hcl
 provider "solarisbank" {
-  endpoint = var.solarisbank_endpoint[terraform.workspace] # or define SOLARISBANK_ENDPOINT
-  client_id = var.solarisbank_client_id # or define SOLARISBANK_CLIENT_ID
-  client_secret = var.solarisbank_client_secret # or define SOLARISBANK_CLIENT_SECRET
+  endpoint = var.solarisbank_endpoint
+  client_id = var.solarisbank_client_id
+  client_secret = var.solarisbank_client_secret
 }
 ```
+You also have the option of setting those values through their respective environment variables:
 
-Reference the individual resource docs for further information.
+- `SOLARISBANK_ENDPOINT`
+- `SOLARISBANK_CLIENT_ID`
+- `SOLARISBANK_CLIENT_ID_SECRET`
+
+
+For more information, check out the individual resource documents!
 
 ## Requirements
 
@@ -29,8 +40,9 @@ Reference the individual resource docs for further information.
 ## Building The Provider
 
 1. Clone the repository
-1. Enter the repository directory
-1. Build the provider using the Go `install` command: 
+2. Enter the repository directory
+3. Build the provider using the Go `install` command: 
+
 ```sh
 $ go install
 ```
@@ -51,8 +63,6 @@ In order to run the full suite of Acceptance tests, run `make testacc`.
 $ make testacc
 ```
 
-## Release a new version
+## License
 
-To release a new version, just create a Github Release with a tag following a `vX.X.X` format.
-
-This will trigger a Github Actions workflow that automatically builds a new release and attaches the artifact to the Github release.
+This software is distributed under the terms of the MIT license, see [LICENSE](./LICENSE) for details.
