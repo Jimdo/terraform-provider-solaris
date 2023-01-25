@@ -33,7 +33,7 @@ func NewClient(ctx context.Context, config Config) *Client {
 func (c *Client) sendRequest(req *http.Request, result interface{}) error {
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
 	req.Header.Set("Accept", "application/json; charset=utf-8")
-	req.Header.Set("User-Agent", "jimdo/terraform-provider-solarisbank")
+	req.Header.Set("User-Agent", "jimdo/terraform-provider-solaris")
 
 	res, err := c.httpClient.Do(req)
 	if err != nil {

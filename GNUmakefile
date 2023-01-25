@@ -1,6 +1,6 @@
-SOLARISBANK_ENDPOINT ?= api.solaris-sandbox.de
+SOLARIS_ENDPOINT ?= api.solaris-sandbox.de
 
-export SOLARISBANK_ENDPOINT
+export SOLARIS_ENDPOINT
 
 default: testacc
 
@@ -12,12 +12,12 @@ guard-%:
 
 # Run acceptance tests
 .PHONY: testacc
-testacc: guard-SOLARISBANK_CLIENT_ID guard-SOLARISBANK_CLIENT_SECRET
+testacc: guard-SOLARIS_CLIENT_ID guard-SOLARIS_CLIENT_SECRET
 	TF_ACC=1 go test ./... -v $(TESTARGS) -cover -timeout 120m
 
 .PHONY: docs
 docs:
-	env -u SOLARISBANK_ENDPOINT \
-	    -u SOLARISBANK_CLIENT_ID \
-	    -u SOLARISBANK_CLIENT_SECRET \
+	env -u SOLARIS_ENDPOINT \
+	    -u SOLARIS_CLIENT_ID \
+	    -u SOLARIS_CLIENT_SECRET \
 	    go generate

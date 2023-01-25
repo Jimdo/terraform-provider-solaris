@@ -61,7 +61,7 @@ jobs:
         env:
           TF_ACC: "1"
           TF_ACC_TERRAFORM_VERSION: ${{ matrix.terraform }}
-          SOLARISBANK_CLIENT_ID: ${{ secrets.SOLARISBANK_CLIENT_ID }}
-          SOLARISBANK_CLIENT_SECRET: ${{ secrets.SOLARISBANK_CLIENT_SECRET }}
+          SOLARIS_CLIENT_ID: ${{ secrets.SOLARIS_CLIENT_ID }}
+          SOLARIS_CLIENT_SECRET: ${{ secrets.SOLARIS_CLIENT_SECRET }}
 
         run: make testacc

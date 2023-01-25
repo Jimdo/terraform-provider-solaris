@@ -10,7 +10,7 @@ import (
 // The factory function will be invoked for every Terraform CLI command executed
 // to create a provider server to which the CLI can reattach.
 var providerFactories = map[string]func() (*schema.Provider, error){
-	"solarisbank": func() (*schema.Provider, error) {
+	"solaris": func() (*schema.Provider, error) {
 		x := New("dev")()
 		return x, nil
 	},

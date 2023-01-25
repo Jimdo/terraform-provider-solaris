@@ -1,4 +1,4 @@
-module github.com/jimdo-fs/terraform-provider-solarisbank
+module github.com/jimdo/terraform-provider-solaris
 
 go 1.15
 

@@ -16,11 +16,11 @@ func TestAccResourceWebhook(t *testing.T) {
 				Config: testAccResourceWebhook,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttr(
-						"solarisbank_webhook.identification", "event_type", "IDENTIFICATION"),
+						"solaris_webhook.identification", "event_type", "IDENTIFICATION"),
 					resource.TestCheckResourceAttr(
-						"solarisbank_webhook.identification", "url", "https://httpbin.org/status/200"),
+						"solaris_webhook.identification", "url", "https://httpbin.org/status/200"),
 					resource.TestMatchResourceAttr(
-						"solarisbank_webhook.identification", "secret", regexp.MustCompile(`\w+`)),
+						"solaris_webhook.identification", "secret", regexp.MustCompile(`\w+`)),
 				),
 			},
 		},
@@ -28,7 +28,7 @@ func TestAccResourceWebhook(t *testing.T) {
 }
 
 const testAccResourceWebhook = `
-resource "solarisbank_webhook" "identification" {
+resource "solaris_webhook" "identification" {
   event_type = "IDENTIFICATION"
   url        = "https://httpbin.org/status/200"
 }

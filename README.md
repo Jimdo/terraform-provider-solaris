@@ -17,17 +17,17 @@ A Terraform provider, the tool for provisioning all your static resources using 
 The provider can be installed directly from the Terraform Registry. To do this, include the following block in your Terraform configuration file. This will download the provider from the Terraform Registry.
 
 ```hcl
-provider "solarisbank" {
-  endpoint = var.solarisbank_endpoint
-  client_id = var.solarisbank_client_id
-  client_secret = var.solarisbank_client_secret
+provider "solaris" {
+  endpoint = var.solaris_endpoint
+  client_id = var.solaris_client_id
+  client_secret = var.solaris_client_secret
 }
 ```
 You also have the option of setting those values through their respective environment variables:
 
-- `SOLARISBANK_ENDPOINT`
-- `SOLARISBANK_CLIENT_ID`
-- `SOLARISBANK_CLIENT_ID_SECRET`
+- `SOLARIS_ENDPOINT`
+- `SOLARIS_CLIENT_ID`
+- `SOLARIS_CLIENT_ID_SECRET`
 
 
 For more information, check out the individual resource documents!
@@ -65,4 +65,4 @@ $ make testacc
 
 ## License
 
-This software is distributed under the terms of the MIT license, see [LICENSE](./LICENSE) for details.
+This software is distributed under the terms of the MIT license, see [LICENSE](./LICENSE.md) for details.

@@ -1,3 +1,3 @@
-provider "solarisbank" {
+provider "solaris" {
   endpoint = "api.solaris-sandbox.de"
 }

@@ -1,9 +1,9 @@
-resource "solarisbank_webhook" "identification" {
+resource "solaris_webhook" "identification" {
   event_type = "IDENTIFICATION"
   url        = "https://example.com/identification"
 }
 
 output "identification_webhook_secret" {
-  value     = solarisbank_webhook.identification.secret
+  value     = solaris_webhook.identification.secret
   sensitive = true
 }
