@@ -35,7 +35,7 @@ For more information, check out the individual resource documents!
 ## Requirements
 
 - [Terraform](https://www.terraform.io/downloads.html) >= 0.13.x
-- [Go](https://golang.org/doc/install) >= 1.17
+- [Go](https://golang.org/doc/install) >= 1.19
 
 ## Building The Provider
 
@@ -65,4 +65,4 @@ $ make testacc
 
 ## License
 
-This software is distributed under the terms of the MIT license, see [LICENSE](./LICENSE.md) for details.
+This software is distributed under the terms of the MIT license, see [LICENSE](./LICENSE) for details.
