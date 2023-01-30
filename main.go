@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	"github.com/jimdo-fs/terraform-provider-solarisbank/internal/provider"
+	"github.com/jimdo/terraform-provider-solaris/internal/provider"
 )
 
 // Run "go generate" to format example terraform files and generate the docs for the registry/website
@@ -37,7 +37,7 @@ func main() {
 	opts := &plugin.ServeOpts{ProviderFunc: provider.New(version)}
 
 	if debugMode {
-		err := plugin.Debug(context.Background(), "github.com/Jimdo-fs/terraform-provider-solarisbank", opts)
+		err := plugin.Debug(context.Background(), "github.com/Jimdo/terraform-provider-solaris", opts)
 		if err != nil {
 			log.Fatal(err.Error())
 		}

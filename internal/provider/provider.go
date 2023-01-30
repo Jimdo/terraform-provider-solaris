@@ -5,7 +5,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/jimdo-fs/terraform-provider-solarisbank/internal/solaris"
+	"github.com/jimdo/terraform-provider-solaris/internal/solaris"
 )
 
 func init() {
@@ -31,21 +31,21 @@ func New(version string) func() *schema.Provider {
 				"endpoint": {
 					Type:        schema.TypeString,
 					Required:    true,
-					DefaultFunc: schema.EnvDefaultFunc("SOLARISBANK_ENDPOINT", nil),
+					DefaultFunc: schema.EnvDefaultFunc("SOLARIS_ENDPOINT", nil),
 				},
 				"client_id": {
 					Type:        schema.TypeString,
 					Required:    true,
-					DefaultFunc: schema.EnvDefaultFunc("SOLARISBANK_CLIENT_ID", nil),
+					DefaultFunc: schema.EnvDefaultFunc("SOLARIS_CLIENT_ID", nil),
 				},
 				"client_secret": {
 					Type:        schema.TypeString,
 					Required:    true,
-					DefaultFunc: schema.EnvDefaultFunc("SOLARISBANK_CLIENT_SECRET", nil),
+					DefaultFunc: schema.EnvDefaultFunc("SOLARIS_CLIENT_SECRET", nil),
 				},
 			},
 			ResourcesMap: map[string]*schema.Resource{
-				"solarisbank_webhook": resourceWebhook(),
+				"solaris_webhook": resourceWebhook(),
 			},
 		}
 

@@ -5,12 +5,12 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/jimdo-fs/terraform-provider-solarisbank/internal/solaris"
+	"github.com/jimdo/terraform-provider-solaris/internal/solaris"
 )
 
 func resourceWebhook() *schema.Resource {
 	return &schema.Resource{
-		Description: "Solarisbank webhook subscription. Reference [the Solarisbank documentation](https://docs.solarisbank.com/core/api/v1/#1y6rKTa9-webhooks) for more information.",
+		Description: "Solaris webhook subscription. Reference [the Solaris documentation](https://docs.solarisgroup.com/api-reference/webhooks/) for more information.",
 
 		CreateContext: resourceWebhookCreate,
 		ReadContext:   resourceWebhookRead,
@@ -18,19 +18,19 @@ func resourceWebhook() *schema.Resource {
 
 		Schema: map[string]*schema.Schema{
 			"event_type": {
-				Description: "The type of event, you want to subscribe to. Values listed [here](https://docs.solarisbank.com/core/api/v1/#webhook-events).",
+				Description: "The type of event, you want to subscribe to. Values listed [here](https://docs.solarisgroup.com/api-reference/webhooks/#full-list-of-webhook-events).",
 				Type:        schema.TypeString,
 				Required:    true,
 				ForceNew:    true,
 			},
 			"url": {
-				Description: "The receipent URL of the event notification.",
+				Description: "The recipient URL of the event notification.",
 				Type:        schema.TypeString,
 				Required:    true,
 				ForceNew:    true,
 			},
 			"secret": {
-				Description: "A key phrase used to verify the authenticity of received webhook messages. See [Verification](https://docs.solarisbank.com/core/api/v1/#content-verification) for further information",
+				Description: "A key phrase used to verify the authenticity of received webhook messages. See [Verification](https://docs.solarisgroup.com/api-reference/webhooks/#content-verification) for further information",
 				Type:        schema.TypeString,
 				Sensitive:   true,
 				Computed:    true,

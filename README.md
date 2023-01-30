@@ -17,17 +17,17 @@ A Terraform provider, the tool for provisioning all your static resources using 
 The provider can be installed directly from the Terraform Registry. To do this, include the following block in your Terraform configuration file. This will download the provider from the Terraform Registry.
 
 ```hcl
-provider "solarisbank" {
-  endpoint = var.solarisbank_endpoint
-  client_id = var.solarisbank_client_id
-  client_secret = var.solarisbank_client_secret
+provider "solaris" {
+  endpoint = var.solaris_endpoint
+  client_id = var.solaris_client_id
+  client_secret = var.solaris_client_secret
 }
 ```
 You also have the option of setting those values through their respective environment variables:
 
-- `SOLARISBANK_ENDPOINT`
-- `SOLARISBANK_CLIENT_ID`
-- `SOLARISBANK_CLIENT_ID_SECRET`
+- `SOLARIS_ENDPOINT`
+- `SOLARIS_CLIENT_ID`
+- `SOLARIS_CLIENT_ID_SECRET`
 
 
 For more information, check out the individual resource documents!
@@ -35,7 +35,7 @@ For more information, check out the individual resource documents!
 ## Requirements
 
 - [Terraform](https://www.terraform.io/downloads.html) >= 0.13.x
-- [Go](https://golang.org/doc/install) >= 1.17
+- [Go](https://golang.org/doc/install) >= 1.19
 
 ## Building The Provider
 
