@@ -1,6 +1,9 @@
 # Solaris Terraform Provider
 
-[![CI]()
+![Test](https://github.com/Jimdo/terraform-provider-solarisbank/actions/workflows/test.yml/badge.svg)
+
+![Release](https://github.com/Jimdo/terraform-provider-solarisbank/actions/workflows/test.yml/badge.svg)
+
 [![Terraform Registry]()
 
 A Terraform provider, the tool for provisioning all your static resources using the Solaris API.
