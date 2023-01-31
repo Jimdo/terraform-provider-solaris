@@ -20,6 +20,15 @@ A Terraform provider, the tool for provisioning all your static resources using 
 The provider can be installed directly from the Terraform Registry. To do this, include the following block in your Terraform configuration file. This will download the provider from the Terraform Registry.
 
 ```hcl
+terraform {
+  required_providers {
+    solaris = {
+      source = "Jimdo/solaris"
+      version = "1.0.3"
+    }
+  }
+}
+
 provider "solaris" {
   endpoint = var.solaris_endpoint
   client_id = var.solaris_client_id
