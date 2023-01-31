@@ -4,7 +4,7 @@
 
 ![Release](https://github.com/Jimdo/terraform-provider-solarisbank/actions/workflows/test.yml/badge.svg)
 
-[![Terraform Registry]()
+[![Terraform Registry](https://registry.terraform.io/providers/Jimdo/solaris/latest)
 
 A Terraform provider, the tool for provisioning all your static resources using the Solaris API.
 
