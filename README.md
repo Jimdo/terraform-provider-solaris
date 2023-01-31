@@ -2,7 +2,7 @@
 
 ![Test](https://github.com/Jimdo/terraform-provider-solarisbank/actions/workflows/test.yml/badge.svg)
 
-![Release](https://github.com/Jimdo/terraform-provider-solarisbank/actions/workflows/test.yml/badge.svg)
+![Release](https://github.com/Jimdo/terraform-provider-solarisbank/actions/workflows/release.yml/badge.svg)
 
 [![Terraform Registry](https://registry.terraform.io/providers/Jimdo/solaris/latest)
 
