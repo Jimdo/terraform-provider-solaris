@@ -8,7 +8,7 @@
 
 A Terraform provider, the tool for provisioning all your static resources using the Solaris API.
 
-📝 Read [the documentation]()
+📝 Read [the documentation](https://registry.terraform.io/providers/jimdo/solaris/latest/docs)
 
 👀 See [example/](examples/)
 
