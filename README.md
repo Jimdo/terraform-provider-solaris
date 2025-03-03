@@ -1,3 +1,6 @@
+⚠️ Archived Repository ⚠️
+This repository has been archived and is no longer being maintained. The code is preserved here as a reference for a Terraform Provider Implementation.
+
 # Solaris Terraform Provider
 
 ![Test](https://github.com/Jimdo/terraform-provider-solarisbank/actions/workflows/test.yml/badge.svg)
